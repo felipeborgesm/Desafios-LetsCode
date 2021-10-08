@@ -4,12 +4,12 @@ let calculadora = (() => {
     let operacaoHistorico = [];
     let resultadoOperacoes = [];
 
-    const ultitimoTermo = (lista) => {
-        return lista[lista.length - 1]
+    const ultimoTermo = (array) => {
+        return array[array.length - 1]
     }
 
-    const penultitimoTermo = (lista) => {
-        return lista[lista.length - 2]
+    const penultimoTermo = (array) => {
+        return array[array.length - 2]
     }
 
     const enter = (entrada) => {
@@ -26,20 +26,20 @@ let calculadora = (() => {
             numeroHistorico.push(0);
             calculo = null;
         } else {
-            if (ultitimoTermo(operacaoHistorico) === '+') {
-                calculo = penultitimoTermo(numeroHistorico) + ultitimoTermo(numeroHistorico); 
+            if (ultimoTermo(operacaoHistorico) === '+') {
+                calculo = penultimoTermo(numeroHistorico) + ultimoTermo(numeroHistorico); 
             }
-            if (ultitimoTermo(operacaoHistorico) === '-') {
-                calculo = penultitimoTermo(numeroHistorico) - ultitimoTermo(numeroHistorico); 
+            if (ultimoTermo(operacaoHistorico) === '-') {
+                calculo = penultimoTermo(numeroHistorico) - ultimoTermo(numeroHistorico); 
             }
-            if (ultitimoTermo(operacaoHistorico) === '*') {
-                calculo = penultitimoTermo(numeroHistorico) * ultitimoTermo(numeroHistorico); 
+            if (ultimoTermo(operacaoHistorico) === '*') {
+                calculo = penultimoTermo(numeroHistorico) * ultimoTermo(numeroHistorico); 
             }
-            if (ultitimoTermo(operacaoHistorico) === '/') {
-                if (penultitimoTermo(numeroHistorico) === 0 || ultitimoTermo(operacaoHistorico) === 0) { //qualquer divisão por zero gerá resultado igual a 0
+            if (ultimoTermo(operacaoHistorico) === '/') {
+                if (penultimoTermo(numeroHistorico) === 0 || ultimoTermo(operacaoHistorico) === 0) { //qualquer divisão por zero gerá resultado igual a 0
                     calculo = 0;
                 } else {
-                    calculo = penultitimoTermo(numeroHistorico) / ultitimoTermo(numeroHistorico); 
+                    calculo = penultimoTermo(numeroHistorico) / ultimoTermo(numeroHistorico); 
                 }
             }  
         }
@@ -48,7 +48,7 @@ let calculadora = (() => {
     }
 
     const list = () => {
-        console.log(listaOperacoes = [...listaOperacoes, `${penultitimoTermo(numeroHistorico)} ${ultitimoTermo(operacaoHistorico)} ${ultitimoTermo(numeroHistorico)} => ${ultitimoTermo(resultadoOperacoes)}`])
+        console.log(listaOperacoes = [...listaOperacoes, `${penultimoTermo(numeroHistorico)} ${ultimoTermo(operacaoHistorico)} ${ultimoTermo(numeroHistorico)} => ${ultimoTermo(resultadoOperacoes)}`])
     }
 
     const reset = () => {
