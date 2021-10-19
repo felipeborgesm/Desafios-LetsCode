@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="calculadora.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type='number'/>
+    <button type='button' id = 'enter'>Enter</button>
+
+    <div>
+        <input type='radio' id = 'soma' name = 'operador'/>
+        <label for = 'soma'>+</label>
+    </div>
+    <div>
+        <input type='radio' id = 'sub' name = 'operador'/>
+        <label for = 'sub'>-</label>
+    </div>
+        <input type='radio' id = 'multi' name = 'operador'/>
+        <label for = 'multi'>*</label>
+    <div>
+        <input type='radio' id = 'divi' name = 'operador'/>
+        <label for = 'divi'>/</label>
+    </div>
+
+    <div id = 'total'>
+        <button type='button' id = 'igual'>Igual</button>
+        Total: <span>0</span>
+    </div>
+
+
+    <script>
+        let total = 0;
+        let numberSelected = 0;
+        let numbers = []; 
+
+        const enter = document.querySelector('#enter');
+        const input = document.querySelector('input');
+
+        enter.onclick = function(){
+            numberSelected = +input.value;
+            numbers = [...numbers, numberSelected];
+            input.value = '';
+            console.log(numberSelected);
+        }
+
+        const igual = document.querySelector('#igual');
+        
+        igual.onclick = function() {
+            const operador = document.querySelector(document.querySelector('input[type="radio"]:checked').value)
+            if (operador === '+') {
+                console.log('selecione a operacao')
+            }
+            //console.log(equals(operador, numbers))
+
+        }
+
+    </script>
+</body>
+</html>
