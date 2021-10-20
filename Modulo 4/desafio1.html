@@ -8,21 +8,22 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>Calculadora</h1>
     <input type='number'/>
     <button type='button' id = 'enter'>Enter</button>
 
     <div>
-        <input type='radio' id = 'soma' name = 'operador'/>
+        <input type='radio' name = 'operador' value = '+'/>
         <label for = 'soma'>+</label>
     </div>
     <div>
-        <input type='radio' id = 'sub' name = 'operador'/>
+        <input type='radio' name = 'operador' value = '-'/>
         <label for = 'sub'>-</label>
     </div>
-        <input type='radio' id = 'multi' name = 'operador'/>
+        <input type='radio' name = 'operador' value = '*'/>
         <label for = 'multi'>*</label>
     <div>
-        <input type='radio' id = 'divi' name = 'operador'/>
+        <input type='radio' name = 'operador' value = '/'/>
         <label for = 'divi'>/</label>
     </div>
 
@@ -30,34 +31,24 @@
         <button type='button' id = 'igual'>Igual</button>
         Total: <span>0</span>
     </div>
-
-
     <script>
         let total = 0;
         let numberSelected = 0;
         let numbers = []; 
 
         const enter = document.querySelector('#enter');
-        const input = document.querySelector('input');
+        const igual = document.querySelector('#igual');
 
         enter.onclick = function(){
-            numberSelected = +input.value;
-            numbers = [...numbers, numberSelected];
-            input.value = '';
-            console.log(numberSelected);
+            getInputValue();
+            clearInput();           
         }
-
-        const igual = document.querySelector('#igual');
         
         igual.onclick = function() {
-            const operador = document.querySelector(document.querySelector('input[type="radio"]:checked').value)
-            if (operador === '+') {
-                console.log('selecione a operacao')
-            }
-            //console.log(equals(operador, numbers))
-
+            const operador = document.querySelector('input[type="radio"]:checked').value
+            const totalSpan = document.querySelector('#total span')
+            totalSpan.innerHTML = equals(operador, numbers)
         }
-
     </script>
 </body>
 </html>

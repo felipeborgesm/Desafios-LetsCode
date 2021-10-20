@@ -1,6 +1,16 @@
+function getInputValue () {
+    const input = document.querySelector('input');
+    numberSelected = +input.value;
+    numbers = [...numbers, numberSelected];
+}
+
+function clearInput () {
+    const input = document.querySelector('input');
+    input.value = '';
+}
+
 const equals = (operador, numbers) => {
     if (operador === '+') {
-        console.log('selecione a operacao')
         const soma = numbers.reduce(
             (somaAtual, current) => somaAtual + current,
             0
@@ -14,7 +24,7 @@ const equals = (operador, numbers) => {
             (somaAtual, current) => somaAtual - current,
         )
         numbers = [];
-        console.log(sub);
+        return sub;
     }
 
     if (operador === '*') {
@@ -23,7 +33,7 @@ const equals = (operador, numbers) => {
             1
         )
         numbers = [];
-        console.log(multi);   
+        return multi;   
     }
 
     if (operador === '/') {
@@ -31,6 +41,6 @@ const equals = (operador, numbers) => {
             (somaAtual, current) => somaAtual / current,
         )
         numbers = [];
-        console.log(div);   
+        return div;   
     }
 }
