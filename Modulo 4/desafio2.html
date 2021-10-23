@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de usuários</title>
+</head>
+<body>
+    <h1>Cadastramento</h1>
+    <form>
+        <input type="text"/>
+        <button type = "submit" placeholder="Insira o nome do usuário">Enviar</button>
+    </form>
+    <h2>Lista de usuários</h2>
+    <ul>
+
+    </ul>
+    <script>
+
+        function removerUsuario (usuario) {
+            return usuario.remove()
+        }
+
+        function criaBotaoDeRemocao (usuario) {
+            const botaoDeRemocao = document.createElement("button")
+            botaoDeRemocao.innerText = "Remover"
+            botaoDeRemocao.onclick = () => removerUsuario(usuario)
+            usuario.appendChild(botaoDeRemocao)
+        }
+
+        function criaUsuario (name) {
+            const listaDeUsuarios = document.querySelector("ul")
+            const usuario = document.createElement("li")
+            usuario.innerText = name
+            listaDeUsuarios.appendChild(usuario)
+            criaBotaoDeRemocao(usuario)
+        }
+
+        function pegarInput (){
+            return document.querySelector("input")
+        }
+        const form = document.querySelector("form")
+        const button = document.querySelector("button")
+
+        form.addEventListener("submit", (evt) => evt.preventDefault())
+
+        function limparInput () {
+            return pegarInput().value = ''
+        }
+
+        button.onclick = () => {
+            criaUsuario(pegarInput().value);
+            limparInput();
+            
+        }
+
+
+
+    </script>
+</body>
+</html>
