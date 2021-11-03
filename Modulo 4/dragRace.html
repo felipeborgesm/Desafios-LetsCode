@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag Race</title>
+</head>
+<body>
+    <h1> Drag Race - Carlos Felipe </h1> 
+    <section class="tempo">
+    <form>
+        <div>
+            <span id="hora">00</span>:<span id="minuto">00</span>:<span id="segundo">00</span>:<span id="millisegundo">000</span>
+        </div>  
+        <label for = "nome" >Competidor: </label>
+        <input type="text" name = "nome" placeholder="Nome do jogador" required autofocus/>
+        <button id = "start" type="submit"> Start </button> </button>
+        <button id = "stop" type="button">Stop</button>
+        <button id = "finish" type = "button"> Fim de Jogo ! </button>
+        <button id = "reset" type="button">Novo Jogo</button>
+
+    </form>
+    </section>
+
+    <script>
+        let hora = 0;
+        let minuto = 0;
+        let segundo = 0;
+        let millisegundo = 0;
+        let tempoTotal = 0;
+        let minimo = 0; 
+        let tempoTotalNumero = 0;
+        let menorTempoLista = [];
+        let listaCompetidores = [];
+        let nomesTempos = new Object();
+        let cronometro;
+
+        const botaoStart = document.querySelector("#start")
+        const botaoStop = document.querySelector("#stop")
+        const botaoReset = document.querySelector("#reset")
+        const botaoFinish = document.querySelector("#finish")
+        const input = document.querySelector("input")
+        const form = document.querySelector("form")
+
+        form.addEventListener('submit', function(evt) {
+            evt.preventDefault();
+        })
+
+
+        botaoStart.onclick = () => start();
+        botaoStop.onclick = () => stop();
+        botaoReset.onclick = () => reset();
+        botaoFinish.onclick = () => finish();
+
+        function start() {
+            //stop();
+            cronometro = setInterval(() => { tempo(); }, 10);
+        }
+
+        function stop() {
+            hora = 0;
+            minuto = 0;
+            segundo = 0;
+            millisegundo = 0;
+            document.getElementById('hora').innerText = '00';
+            document.getElementById('minuto').innerText = '00';
+            document.getElementById('segundo').innerText = '00';
+            document.getElementById('millisegundo').innerText = '000';
+            clearInterval(cronometro);
+            sessionStorage.setItem(input.value, tempoTotal)
+            clearInput();
+        }
+
+        function stopReset() {
+            hora = 0;
+            minuto = 0;
+            segundo = 0;
+            millisegundo = 0;
+            document.getElementById('hora').innerText = '00';
+            document.getElementById('minuto').innerText = '00';
+            document.getElementById('segundo').innerText = '00';
+            document.getElementById('millisegundo').innerText = '000';
+            clearInterval(cronometro);
+            clearInput();
+        }
+
+        function reset() {
+            stopReset();
+            clearInput();
+            nomesTempos = {};
+            menorTempoLista = []
+            sessionStorage.clear();
+            localStorage.clear();
+        }
+
+        function finish() {
+            nomesTempos[input.value] = tempoTotalNumero;
+            menorTempo(nomesTempos)
+            //clearInput();
+        }
+
+        function clearInput () {
+            const input = document.querySelector('input');
+            input.value = '';
+        }
+
+        function menorTempo(objeto) {
+            for (let [chave, valor] of Object.entries(objeto)) {
+                listaCompetidores = [...listaCompetidores, chave];
+                menorTempoLista = [...menorTempoLista, valor];
+                minimo = menorTempoLista.map(Number).reduce(function(a, b) {
+                   return Math.min(a, b);
+                });
+                }
+            console.log(listaCompetidores);
+            let index = menorTempoLista.indexOf(minimo);
+            return localStorage.setItem(listaCompetidores[index], minimo);
+        }
+
+        function tempo() {
+            if ((millisegundo += 10) == 1000) {
+                millisegundo = 0;
+                segundo++;
+            }
+            if (segundo == 60) {
+                segundo = 0;
+                minuto++;
+            }
+            if (minuto == 60) {
+                minuto = 0;
+                hora++;
+            }
+            document.getElementById('hora').innerText = `0${hora}`;
+            document.getElementById('minuto').innerText = `0${minuto}`;
+            document.getElementById('segundo').innerText = `0${segundo}`;
+            document.getElementById('millisegundo').innerText = `${millisegundo}`;
+        
+            tempoTotal = `0${hora}:0${minuto}:0${segundo}:${millisegundo}`
+            tempoTotalNumero = `${hora}${minuto}${segundo}0${millisegundo}`
+            tempoTotalNumero = parseInt(tempoTotalNumero)
+        }
+    </script>
+</body>
+</html>
