@@ -16,7 +16,6 @@
         </ul>
     </form>
     <script>
-        const button = document.querySelector("button");
         const ul = document.querySelector("ul");
         const form = document.querySelector("form")
 
@@ -43,17 +42,30 @@
         }
 
         const createPromises = async () => {
-            const promessa = await new Promise((resolve) => setTimeout(resolve, geraTempo(), geraLista()))
-            //criaElementoLi(promessa);
+            const promessa =  await new Promise((resolve) => setTimeout(resolve, geraTempo(), geraLista()))
+            criaElementoLi(promessa)
         }
+
+        // const resolvePromessas = async () => {
+        //     const promessa1 = createPromises();
+        //     const promessa2 = createPromises();
+        //     const promessa3 = createPromises();
+        //     let resultadoPromessas = [];
+        //     let promessaFinal = await Promise.allSettled([promessa1, promessa2, promessa3]).then((results) => {
+        //         for (let element of Object.values(results)) {
+        //             resultadoPromessas = [...resultadoPromessas, element.value];
+        //         }
+        //         console.log(Object.values(results))
+        //         return resultadoPromessas;
+        //     });
+        //     criaElementoLi(promessaFinal);
+        // }
 
         form.addEventListener('submit', event => {
             event.preventDefault()
-            const promessa1 = createPromises()
-            const promessa2 = createPromises()
-            const promessa3 = createPromises()
-            const promessaFinal = Promise.allSettled([promessa1, promessa2, promessa3]).
-            criaElementoLi(promessaFinal);
+            const promessa1 = createPromises();
+            const promessa2 = createPromises();
+            const promessa3 = createPromises();
         })
 
     </script>

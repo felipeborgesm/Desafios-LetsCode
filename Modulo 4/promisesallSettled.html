@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+<body>
+    <form>
+        <h1>Desafio Promises com .allSettled (Carlos Felipe)</h1>
+        <button type = "submit">Gerar lista</button>
+        <h2>Listas</h2>
+        <ul>
+
+        </ul>
+    </form>
+    <script>
+        const ul = document.querySelector("ul");
+        const form = document.querySelector("form")
+
+        function geraLista () {
+            const tamanho = Math.round(Math.random()*10);
+            let lista = [];
+
+            for (let i = 0; i <= tamanho; i++) {
+                let item = Math.round(Math.random()*1000);
+                lista = [...lista, item];
+            }
+            return lista;
+        }
+
+        function geraTempo () {
+            const tempo =  Math.round(Math.random()*5);
+            return tempo*1000;
+        }
+
+        function criaElementoLi (promessa) {
+            const li = document.createElement("li");
+            li.innerHTML = `[${promessa}]`;
+            ul.appendChild(li)
+        }
+
+        const createPromises = async () => {
+            //const promessa =  await new Promise((resolve) => setTimeout(resolve, geraTempo(), geraLista()))
+            //criaElementoLi(promessa)
+            return await new Promise((resolve) => setTimeout(resolve, geraTempo(), geraLista()))
+
+        }
+
+        const resolvePromessas = async () => {
+            const promessa1 = createPromises();
+            const promessa2 = createPromises();
+            const promessa3 = createPromises();
+            let resultadoPromessas = [];
+            let promessaFinal = await Promise.allSettled([promessa1, promessa2, promessa3]).then((results) => {
+                for (let element of Object.values(results)) {
+                    resultadoPromessas = [...resultadoPromessas, element.value];
+                }
+                console.log(Object.values(results))
+                return resultadoPromessas;
+            });
+            criaElementoLi(promessaFinal);
+        }
+
+        form.addEventListener('submit', event => {
+            event.preventDefault()
+            // const promessa1 = createPromises();
+            // const promessa2 = createPromises();
+            // const promessa3 = createPromises();
+            resolvePromessas();
+        })
+
+    </script>
+</body>
+</html>
