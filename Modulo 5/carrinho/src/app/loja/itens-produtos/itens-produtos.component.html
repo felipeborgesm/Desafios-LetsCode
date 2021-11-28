@@ -1,0 +1,39 @@
+<!-- <form [formGroup]="quantidade" (ngSubmit)="submit()"> -->
+    <div class="lapis">
+        <img src="assets/lapis.jpg" class="imagem"/>
+        <p id = "info">Lápis Bic</p>
+        <p id = "preço">Preço: R$ 2,00 </p>
+        <label for="produto">Quantidade de produtos</label>
+        <input type="number" id="produto" required formControlName="produto"/>       
+    </div>
+
+    <div class="mac">
+        <img src="assets/mac.jpg" class="imagem"/>
+            <p id = "info">Mac Book pro 16Gb</p>
+            <p id = "preço">Preço: R$ 30.000,00 </p>
+            <label for="produto">Quantidade de produtos</label>
+            <input type="number" id="produto" required formControlName="produto"/>
+    </div>
+
+    <div class="caderno">
+        <img src="assets/caderno.jpg" class="imagem"/>
+            <p id = "info">Caderno universitário 100 folhas</p>
+            <p id = "preço">Preço: R$ 30,00 </p>
+            <label for="produto">Quantidade de produtos</label>
+            <input type="number" id="produto" required formControlName="produto"/>
+    </div>
+
+    <div class="relogio">
+        <img src="assets/smartwatch.jpg" class="imagem"/>
+            <p id = "info">SmartWatch Samsung à prova d'água</p>
+            <p id = "preço">Preço: R$ 1.800,00 </p>
+            <label for="produto">Quantidade de produtos</label>
+            <input type="number" id="produto" required formControlName="produto"/>
+    </div>
+
+
+    <div class="prox-pagina">
+        <button type="submit"  class="carrinho" routerLink="carrinho">Ir para carrinho</button>
+    </div>
+
+<!-- </form> -->

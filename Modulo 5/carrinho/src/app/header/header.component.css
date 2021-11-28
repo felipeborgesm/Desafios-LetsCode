@@ -1,0 +1,15 @@
+.header {
+    width: 100%;
+    background-color: #2b2a9b;
+    height: 120px;
+    padding: 24px;
+    margin-bottom: 48px;
+}
+h1 {
+    color: white;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+  
