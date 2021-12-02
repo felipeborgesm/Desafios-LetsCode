@@ -9,3 +9,4 @@ Aluno: Carlos Felipe Borges Mesquita
         Modulo 4: Links do CodePen: Promises com .allSettled = https://codepen.io/felipeborgesm/pen/MWvrVBg?editors=1010
    
     Modulo 5: Carrinho de compras
+    Modulo 6: Conversor de temperaturas
