@@ -19,26 +19,12 @@ public class Main {
         System.out.println("Insira o segundo número: ");
         numero2 = input.nextInt();
 
-        System.out.println("Qual a operação desejada? ");
-        operacao = input.next().charAt(0);
+        System.out.println("As operações básicas com esses dois números são:  ");
 
-        switch (operacao) {
-            case '+':
-                System.out.println("Resultado da soma é " + Soma(numero1, numero2));
-                break;
-            case '-':
-                System.out.println("Resultado da subtração é " + Subtrai(numero1, numero2));
-                break;
-            case '*':
-                System.out.println("Resultado da multiplicação é " + Multiplica(numero1, numero2));
-                break;
-            case '/':
-                System.out.println("Resultado da divisão é " + Divide(numero1, numero2));
-                break;
-            default:
-                System.out.println("Operador inválido");
-
-        }
+        System.out.println("Resultado da soma é " + Soma(numero1, numero2));
+        System.out.println("Resultado da subtração é " + Subtrai(numero1, numero2));
+        System.out.println("Resultado da multiplicação é " + Multiplica(numero1, numero2));
+        System.out.println("Resultado da divisão é " + Divide(numero1, numero2));
     }
 
     public static Integer Soma(Integer num1, Integer num2) {
