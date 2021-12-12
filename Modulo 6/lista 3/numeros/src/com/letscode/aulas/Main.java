@@ -8,7 +8,7 @@ public class Main {
         int[] listaDeNumeros = new int[5];
         Scanner leitor = new Scanner(System.in);
 
-        System.out.println("Insira os numeros desejados: ");
+        System.out.println("Insira os números desejados: ");
         for (int i = 0; i < listaDeNumeros.length; i++) {
             listaDeNumeros[i] = leitor.nextInt();
         }
@@ -20,20 +20,17 @@ public class Main {
             if (numero < menor){
                 menor = numero;
             }
-        }
-        System.out.println("menor valor do array: " +menor);
-
-        for (int numero : listaDeNumeros) {
-            if (numero > maior){
+            else {
                 maior = numero;
             }
         }
-        System.out.println("menor valor do array: " +maior);
+        System.out.println("Menor valor do array: " +menor);
+        System.out.println("Menor valor do array: " +maior);
 
         for (int numero : listaDeNumeros) {
             media += numero;
             }
         media /= listaDeNumeros.length;
-        System.out.println("media de valores do array: " +media);
+        System.out.println("Média de valores do array: " +media);
     }
 }

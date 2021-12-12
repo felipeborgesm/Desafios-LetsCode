@@ -32,14 +32,14 @@ public class Main {
                 nomeMenorIdade = nomes[i];
             }
         }
-        System.out.println("pessoa mais velha, " +nomeMaiorIdade +", tem " + maiorIdade + " anos.");
-        System.out.println("pessoa mais nova, " +nomeMenorIdade +", tem " + menorIdade + " anos.");
 
         for (int idade : idades) {
             mediaIdades += idade;
         }
         mediaIdades /= idades.length;
 
+        System.out.println("pessoa mais velha, " +nomeMaiorIdade +", tem " + maiorIdade + " anos.");
+        System.out.println("pessoa mais nova, " +nomeMenorIdade +", tem " + menorIdade + " anos.");
         System.out.println("a média das idades é de " +mediaIdades +" anos.");
     }
 }

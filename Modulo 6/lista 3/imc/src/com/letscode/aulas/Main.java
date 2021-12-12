@@ -14,7 +14,7 @@ public class Main {
         for (int contador = 0; contador < nomes.length; contador++) {
             System.out.println("Insira seu nome: ");
             nomes[contador] = leitor.next();
-            System.out.println("Insira sua pesos: ");
+            System.out.println("Insira seu pesos: ");
             pesos[contador] = leitor.nextFloat();
             System.out.println("insira sua altura: ");
             alturas[contador] = leitor.nextFloat();

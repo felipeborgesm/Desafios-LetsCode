@@ -8,7 +8,7 @@ public class Main {
         int[] listaDeNumeros = new int[5];
         Scanner leitor = new Scanner(System.in);
 
-        System.out.println("Insira as frutas para adicionar ao carrinho: ");
+        System.out.println("Insira os números desejados: ");
         for (int i = 0; i < listaDeNumeros.length; i++) {
             listaDeNumeros[i] = leitor.nextInt();
             }
