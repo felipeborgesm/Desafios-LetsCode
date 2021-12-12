@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	    String[] nomes = new String[5];
+        String[] nomes = new String[5];
         int[] idades = new int[5];
         int mediaIdades = 0;
         Scanner leitor = new Scanner(System.in);
